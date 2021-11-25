@@ -201,221 +201,11 @@ namespace PScnFin
 
             if (current_table == "user")
             {
-                if (sortcb.Text == "pc_name")
-                {
-
-                    foreach (var x in um)
-                    {
-                        if (x.pc_name.Contains(filter))
-                            umtemp.Add(x);
-                    }
-                    dg.ItemsSource = umtemp;
-                }
-                else if (sortcb.Text == "ip")
-                {
-                    foreach (var x in um)
-                    {
-                        if (x.ip.Contains(filter))
-                            umtemp.Add(x);
-                    }
-                    dg.ItemsSource = umtemp;
-                }
-                //filter2
-                if (sortcb2.Text == "pc_name")
-                {
-
-                    foreach (var x in umtemp)
-                    {
-                        if (x.pc_name.Contains(filter2))
-                            umtemp2.Add(x);
-                    }
-                    dg.ItemsSource = umtemp2;
-                }
-                else if (sortcb2.Text == "ip")
-                {
-                    foreach (var x in umtemp)
-                    {
-                        if (x.ip.Contains(filter2))
-                            umtemp2.Add(x);
-                    }
-                    dg.ItemsSource = umtemp2;
-                }
+                UserTableSort(filter, filter2, umtemp, umtemp2);
             }
             else if (current_table == "data")
             {
-                if (sortcb.Text == "data_id")
-                {
-                    foreach (var x in dm)
-                    {
-                        if (x.data_id.ToString().Contains(filter))
-                            dmtemp.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp;
-                }
-                else if (sortcb.Text == "positive_scan")
-                {
-                    foreach (var x in dm)
-                    {
-                        if (x.positive_scan.ToString().Contains(filter))
-                            dmtemp.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp;
-                }
-                else if (sortcb.Text == "negative_scan")
-                {
-                    foreach (var x in dm)
-                    {
-                        if (x.negative_scan.ToString().Contains(filter))
-                            dmtemp.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp;
-                }
-                else if (sortcb.Text == "ip")
-                {
-                    foreach (var x in dm)
-                    {
-                        if (x.ip.Contains(filter))
-                            dmtemp.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp;
-                }
-                else if (sortcb.Text == "pc_name")
-                {
-                    foreach (var x in dm)
-                    {
-                        if (x.pc_name.Contains(filter))
-                            dmtemp.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp;
-                }
-                else if (sortcb.Text == "scan_id")
-                {
-                    foreach (var x in dm)
-                    {
-                        if (x.scan_id.ToString() == filter)
-                            dmtemp.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp;
-                }
-                else if (sortcb.Text == "process_name")
-                {
-                    foreach (var x in dm)
-                    {
-                        if (x.process_name.Contains(filter))
-                            dmtemp.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp;
-                }
-                else if (sortcb.Text == "scan_time")
-                {
-                    foreach (var x in dm)
-                    {
-                        if (x.time.ToString().Contains(filter))
-                            dmtemp.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp;
-                }
-                else if (sortcb.Text == "usage")
-                {
-                    int test;
-                    if (int.TryParse(filter, out test) == true)
-                    {
-                        foreach (var x in dm)
-                        {
-                            if (x.usage_percentage >= double.Parse(filter))
-                                dmtemp.Add(x);
-                        }
-                        dg.ItemsSource = dmtemp;
-                    }
-                }
-                //second filter
-                if (sortcb2.Text == "data_id")
-                {
-                    foreach (var x in dmtemp)
-                    {
-                        if (x.data_id.ToString().Contains(filter2))
-                            dmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp2;
-                }
-                else if (sortcb2.Text == "positive_scan")
-                {
-                    foreach (var x in dmtemp)
-                    {
-                        if (x.positive_scan.ToString().Contains(filter2))
-                            dmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp2;
-                }
-                else if (sortcb2.Text == "negative_scan")
-                {
-                    foreach (var x in dmtemp)
-                    {
-                        if (x.negative_scan.ToString().Contains(filter2))
-                            dmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp2;
-                }
-                else if (sortcb2.Text == "ip")
-                {
-                    foreach (var x in dm)
-                    {
-                        if (x.ip.Contains(filter2))
-                            dmtemp.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp;
-                }
-                else if (sortcb2.Text == "pc_name")
-                {
-                    foreach (var x in dmtemp)
-                    {
-                        if (x.pc_name.Contains(filter2))
-                            dmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp2;
-                }
-                else if (sortcb2.Text == "scan_id")
-                {
-                    foreach (var x in dmtemp)
-                    {
-                        if (x.scan_id.ToString() == filter2)
-                            dmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp2;
-                }
-                else if (sortcb2.Text == "process_name")
-                {
-                    foreach (var x in dmtemp)
-                    {
-                        if (x.process_name.Contains(filter2))
-                            dmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp2;
-                }
-                else if (sortcb2.Text == "scan_time")
-                {
-                    foreach (var x in dmtemp)
-                    {
-                        if (x.time.ToString().Contains(filter2))
-                            dmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = dmtemp2;
-                }
-                else if (sortcb2.Text == "usage")
-                {
-                    int test;
-                    double test2;
-                    if (int.TryParse(filter2, out test) == true)
-                    {
-                        foreach (var x in dmtemp)
-                        {
-                            if (double.TryParse(filter2, out test2) == true)
-                                if (x.usage_percentage >= double.Parse(filter2))
-                                    dmtemp2.Add(x);
-                        }
-                        dg.ItemsSource = dmtemp2;
-                    }
-                }
+                DataTableSort(filter, filter2, dmtemp, dmtemp2);
             }
             else if (current_table == "process")
             {
@@ -431,175 +221,402 @@ namespace PScnFin
             }
             else if (current_table == "list")
             {
-                if (sortcb.Text == "list_name")
-                {
-                    foreach (var x in lm)
-                    {
-                        if (x.list_name.Contains(filter))
-                            lmtemp.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp;
-                }
-                else if (sortcb.Text == "proc1")
-                {
-                    foreach (var x in lm)
-                    {
-                        if (x.proc1.Contains(filter))
-                            lmtemp.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp;
-                }
-                else if (sortcb.Text == "proc2")
-                {
-                    foreach (var x in lm)
-                    {
-                        if (x.proc2.Contains(filter))
-                            lmtemp.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp;
-                }
-                else if (sortcb.Text == "proc3")
-                {
-                    foreach (var x in lm)
-                    {
-                        if (x.proc3.Contains(filter))
-                            lmtemp.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp;
-                }
-                else if (sortcb.Text == "proc4")
-                {
-                    foreach (var x in lm)
-                    {
-                        if (x.proc4.Contains(filter))
-                            lmtemp.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp;
-                }
-                else if (sortcb.Text == "proc5")
-                {
-                    foreach (var x in lm)
-                    {
-                        if (x.proc5.Contains(filter))
-                            lmtemp.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp;
-                }
-                //sort2
-                if (sortcb2.Text == "list_name")
-                {
-                    foreach (var x in lmtemp)
-                    {
-                        if (x.list_name.Contains(filter2))
-                            lmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp2;
-                }
-                else if (sortcb2.Text == "proc1")
-                {
-                    foreach (var x in lmtemp)
-                    {
-                        if (x.proc1.Contains(filter2))
-                            lmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp2;
-                }
-                else if (sortcb2.Text == "proc2")
-                {
-                    foreach (var x in lmtemp)
-                    {
-                        if (x.proc2.Contains(filter2))
-                            lmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp2;
-                }
-                else if (sortcb2.Text == "proc3")
-                {
-                    foreach (var x in lmtemp)
-                    {
-                        if (x.proc3.Contains(filter2))
-                            lmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp2;
-                }
-                else if (sortcb2.Text == "proc4")
-                {
-                    foreach (var x in lmtemp)
-                    {
-                        if (x.proc4.Contains(filter2))
-                            lmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp2;
-                }
-                else if (sortcb2.Text == "proc5")
-                {
-                    foreach (var x in lmtemp)
-                    {
-                        if (x.proc5.Contains(filter2))
-                            lmtemp2.Add(x);
-                    }
-                    dg.ItemsSource = lmtemp2;
-                }
-
+                ListTableSort(filter, filter2, lmtemp, lmtemp2);
 
             }
             else if (current_table == "scan")
+                ScanTableSort(filter, filter2, smtemp, smtemp2);
+        }
+
+        private void ScanTableSort(string filter, string filter2, List<ScansModel> smtemp, List<ScansModel> smtemp2)
+        {
+            if (sortcb.Text == "scan_id")
             {
-                if (sortcb.Text == "scan_id")
+                foreach (var x in sm)
                 {
-                    foreach (var x in sm)
-                    {
-                        if (x.scan_id.ToString().Contains(filter))
-                            smtemp.Add(x);
-                    }
-                    dg.ItemsSource = smtemp;
+                    if (x.scan_id.ToString().Contains(filter))
+                        smtemp.Add(x);
                 }
-                else if (sortcb.Text == "time")
+                dg.ItemsSource = smtemp;
+            }
+            else if (sortcb.Text == "time")
+            {
+                foreach (var x in sm)
                 {
-                    foreach (var x in sm)
-                    {
-                        if (x.time.ToString().Contains(filter))
-                            smtemp.Add(x);
-                    }
-                    dg.ItemsSource = smtemp;
+                    if (x.time.ToString().Contains(filter))
+                        smtemp.Add(x);
                 }
-                else if (sortcb.Text == "date")
+                dg.ItemsSource = smtemp;
+            }
+            else if (sortcb.Text == "date")
+            {
+                foreach (var x in sm)
                 {
-                    foreach (var x in sm)
-                    {
-                        if (x.date.Contains(filter))
-                            smtemp.Add(x);
-                    }
-                    dg.ItemsSource = smtemp;
+                    if (x.date.Contains(filter))
+                        smtemp.Add(x);
                 }
-                //sort2
-                if (sortcb2.Text == "scan_id")
+                dg.ItemsSource = smtemp;
+            }
+            //sort2
+            if (sortcb2.Text == "scan_id")
+            {
+                foreach (var x in smtemp)
                 {
-                    foreach (var x in smtemp)
-                    {
-                        if (x.scan_id.ToString().Contains(filter2))
-                            smtemp2.Add(x);
-                    }
-                    dg.ItemsSource = smtemp2;
+                    if (x.scan_id.ToString().Contains(filter2))
+                        smtemp2.Add(x);
                 }
-                else if (sortcb2.Text == "time")
+                dg.ItemsSource = smtemp2;
+            }
+            else if (sortcb2.Text == "time")
+            {
+                foreach (var x in smtemp)
                 {
-                    foreach (var x in smtemp)
-                    {
-                        if (x.time.ToString().Contains(filter2))
-                            smtemp2.Add(x);
-                    }
-                    dg.ItemsSource = smtemp2;
+                    if (x.time.ToString().Contains(filter2))
+                        smtemp2.Add(x);
                 }
-                else if (sortcb2.Text == "date")
+                dg.ItemsSource = smtemp2;
+            }
+            else if (sortcb2.Text == "date")
+            {
+                foreach (var x in smtemp)
                 {
-                    foreach (var x in smtemp)
-                    {
-                        if (x.date.Contains(filter2))
-                            smtemp2.Add(x);
-                    }
-                    dg.ItemsSource = smtemp2;
+                    if (x.date.Contains(filter2))
+                        smtemp2.Add(x);
                 }
+                dg.ItemsSource = smtemp2;
+            }
+        }
+
+        private void ListTableSort(string filter, string filter2, List<SingleListModel> lmtemp, List<SingleListModel> lmtemp2)
+        {
+            if (sortcb.Text == "list_name")
+            {
+                foreach (var x in lm)
+                {
+                    if (x.list_name.Contains(filter))
+                        lmtemp.Add(x);
+                }
+                dg.ItemsSource = lmtemp;
+            }
+            else if (sortcb.Text == "proc1")
+            {
+                foreach (var x in lm)
+                {
+                    if (x.proc1.Contains(filter))
+                        lmtemp.Add(x);
+                }
+                dg.ItemsSource = lmtemp;
+            }
+            else if (sortcb.Text == "proc2")
+            {
+                foreach (var x in lm)
+                {
+                    if (x.proc2.Contains(filter))
+                        lmtemp.Add(x);
+                }
+                dg.ItemsSource = lmtemp;
+            }
+            else if (sortcb.Text == "proc3")
+            {
+                foreach (var x in lm)
+                {
+                    if (x.proc3.Contains(filter))
+                        lmtemp.Add(x);
+                }
+                dg.ItemsSource = lmtemp;
+            }
+            else if (sortcb.Text == "proc4")
+            {
+                foreach (var x in lm)
+                {
+                    if (x.proc4.Contains(filter))
+                        lmtemp.Add(x);
+                }
+                dg.ItemsSource = lmtemp;
+            }
+            else if (sortcb.Text == "proc5")
+            {
+                foreach (var x in lm)
+                {
+                    if (x.proc5.Contains(filter))
+                        lmtemp.Add(x);
+                }
+                dg.ItemsSource = lmtemp;
+            }
+            //sort2
+            if (sortcb2.Text == "list_name")
+            {
+                foreach (var x in lmtemp)
+                {
+                    if (x.list_name.Contains(filter2))
+                        lmtemp2.Add(x);
+                }
+                dg.ItemsSource = lmtemp2;
+            }
+            else if (sortcb2.Text == "proc1")
+            {
+                foreach (var x in lmtemp)
+                {
+                    if (x.proc1.Contains(filter2))
+                        lmtemp2.Add(x);
+                }
+                dg.ItemsSource = lmtemp2;
+            }
+            else if (sortcb2.Text == "proc2")
+            {
+                foreach (var x in lmtemp)
+                {
+                    if (x.proc2.Contains(filter2))
+                        lmtemp2.Add(x);
+                }
+                dg.ItemsSource = lmtemp2;
+            }
+            else if (sortcb2.Text == "proc3")
+            {
+                foreach (var x in lmtemp)
+                {
+                    if (x.proc3.Contains(filter2))
+                        lmtemp2.Add(x);
+                }
+                dg.ItemsSource = lmtemp2;
+            }
+            else if (sortcb2.Text == "proc4")
+            {
+                foreach (var x in lmtemp)
+                {
+                    if (x.proc4.Contains(filter2))
+                        lmtemp2.Add(x);
+                }
+                dg.ItemsSource = lmtemp2;
+            }
+            else if (sortcb2.Text == "proc5")
+            {
+                foreach (var x in lmtemp)
+                {
+                    if (x.proc5.Contains(filter2))
+                        lmtemp2.Add(x);
+                }
+                dg.ItemsSource = lmtemp2;
+            }
+        }
+
+        private void DataTableSort(string filter, string filter2, List<DataViewModel> dmtemp, List<DataViewModel> dmtemp2)
+        {
+            if (sortcb.Text == "data_id")
+            {
+                foreach (var x in dm)
+                {
+                    if (x.data_id.ToString().Contains(filter))
+                        dmtemp.Add(x);
+                }
+                dg.ItemsSource = dmtemp;
+            }
+            else if (sortcb.Text == "positive_scan")
+            {
+                foreach (var x in dm)
+                {
+                    if (x.positive_scan.ToString().Contains(filter))
+                        dmtemp.Add(x);
+                }
+                dg.ItemsSource = dmtemp;
+            }
+            else if (sortcb.Text == "negative_scan")
+            {
+                foreach (var x in dm)
+                {
+                    if (x.negative_scan.ToString().Contains(filter))
+                        dmtemp.Add(x);
+                }
+                dg.ItemsSource = dmtemp;
+            }
+            else if (sortcb.Text == "ip")
+            {
+                foreach (var x in dm)
+                {
+                    if (x.ip.Contains(filter))
+                        dmtemp.Add(x);
+                }
+                dg.ItemsSource = dmtemp;
+            }
+            else if (sortcb.Text == "pc_name")
+            {
+                foreach (var x in dm)
+                {
+                    if (x.pc_name.Contains(filter))
+                        dmtemp.Add(x);
+                }
+                dg.ItemsSource = dmtemp;
+            }
+            else if (sortcb.Text == "scan_id")
+            {
+                foreach (var x in dm)
+                {
+                    if (x.scan_id.ToString() == filter)
+                        dmtemp.Add(x);
+                }
+                dg.ItemsSource = dmtemp;
+            }
+            else if (sortcb.Text == "process_name")
+            {
+                foreach (var x in dm)
+                {
+                    if (x.process_name.Contains(filter))
+                        dmtemp.Add(x);
+                }
+                dg.ItemsSource = dmtemp;
+            }
+            else if (sortcb.Text == "scan_time")
+            {
+                foreach (var x in dm)
+                {
+                    if (x.time.ToString().Contains(filter))
+                        dmtemp.Add(x);
+                }
+                dg.ItemsSource = dmtemp;
+            }
+            else if (sortcb.Text == "usage")
+            {
+                int test;
+                if (int.TryParse(filter, out test) == true)
+                {
+                    foreach (var x in dm)
+                    {
+                        if (x.usage_percentage >= double.Parse(filter))
+                            dmtemp.Add(x);
+                    }
+                    dg.ItemsSource = dmtemp;
+                }
+            }
+            //second filter
+            if (sortcb2.Text == "data_id")
+            {
+                foreach (var x in dmtemp)
+                {
+                    if (x.data_id.ToString().Contains(filter2))
+                        dmtemp2.Add(x);
+                }
+                dg.ItemsSource = dmtemp2;
+            }
+            else if (sortcb2.Text == "positive_scan")
+            {
+                foreach (var x in dmtemp)
+                {
+                    if (x.positive_scan.ToString().Contains(filter2))
+                        dmtemp2.Add(x);
+                }
+                dg.ItemsSource = dmtemp2;
+            }
+            else if (sortcb2.Text == "negative_scan")
+            {
+                foreach (var x in dmtemp)
+                {
+                    if (x.negative_scan.ToString().Contains(filter2))
+                        dmtemp2.Add(x);
+                }
+                dg.ItemsSource = dmtemp2;
+            }
+            else if (sortcb2.Text == "ip")
+            {
+                foreach (var x in dm)
+                {
+                    if (x.ip.Contains(filter2))
+                        dmtemp.Add(x);
+                }
+                dg.ItemsSource = dmtemp;
+            }
+            else if (sortcb2.Text == "pc_name")
+            {
+                foreach (var x in dmtemp)
+                {
+                    if (x.pc_name.Contains(filter2))
+                        dmtemp2.Add(x);
+                }
+                dg.ItemsSource = dmtemp2;
+            }
+            else if (sortcb2.Text == "scan_id")
+            {
+                foreach (var x in dmtemp)
+                {
+                    if (x.scan_id.ToString() == filter2)
+                        dmtemp2.Add(x);
+                }
+                dg.ItemsSource = dmtemp2;
+            }
+            else if (sortcb2.Text == "process_name")
+            {
+                foreach (var x in dmtemp)
+                {
+                    if (x.process_name.Contains(filter2))
+                        dmtemp2.Add(x);
+                }
+                dg.ItemsSource = dmtemp2;
+            }
+            else if (sortcb2.Text == "scan_time")
+            {
+                foreach (var x in dmtemp)
+                {
+                    if (x.time.ToString().Contains(filter2))
+                        dmtemp2.Add(x);
+                }
+                dg.ItemsSource = dmtemp2;
+            }
+            else if (sortcb2.Text == "usage")
+            {
+                int test;
+                double test2;
+                if (int.TryParse(filter2, out test) == true)
+                {
+                    foreach (var x in dmtemp)
+                    {
+                        if (double.TryParse(filter2, out test2) == true)
+                            if (x.usage_percentage >= double.Parse(filter2))
+                                dmtemp2.Add(x);
+                    }
+                    dg.ItemsSource = dmtemp2;
+                }
+            }
+        }
+
+        private void UserTableSort(string filter, string filter2, List<UsersModel> umtemp, List<UsersModel> umtemp2)
+        {
+            if (sortcb.Text == "pc_name")
+            {
+
+                foreach (var x in um)
+                {
+                    if (x.pc_name.Contains(filter))
+                        umtemp.Add(x);
+                }
+                dg.ItemsSource = umtemp;
+            }
+            else if (sortcb.Text == "ip")
+            {
+                foreach (var x in um)
+                {
+                    if (x.ip.Contains(filter))
+                        umtemp.Add(x);
+                }
+                dg.ItemsSource = umtemp;
+            }
+            //filter2
+            if (sortcb2.Text == "pc_name")
+            {
+
+                foreach (var x in umtemp)
+                {
+                    if (x.pc_name.Contains(filter2))
+                        umtemp2.Add(x);
+                }
+                dg.ItemsSource = umtemp2;
+            }
+            else if (sortcb2.Text == "ip")
+            {
+                foreach (var x in umtemp)
+                {
+                    if (x.ip.Contains(filter2))
+                        umtemp2.Add(x);
+                }
+                dg.ItemsSource = umtemp2;
             }
         }
     }
